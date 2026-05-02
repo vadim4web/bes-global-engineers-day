@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { getNextEngineerDay } from '../utils/engineerDayDateRules.js'
 import { resolveAppDate } from '../utils/dateInput.js'
 
@@ -10,7 +10,7 @@ const props = defineProps({
   },
   date: {
     type: [Date, String, Number, Object],
-    default: () => new Date()
+    default: undefined
   },
   variant: {
     type: String,
@@ -18,7 +18,52 @@ const props = defineProps({
   }
 })
 
-const currentDate = computed(() => resolveAppDate(props.date))
+const liveFallbackDate = ref(new Date())
+
+const hasExplicitDate = computed(() =>
+  props.date !== undefined && props.date !== null && props.date !== ''
+)
+
+let midnightRefreshTimer = null
+
+function clearMidnightRefreshTimer() {
+  if (midnightRefreshTimer !== null) {
+    window.clearTimeout(midnightRefreshTimer)
+    midnightRefreshTimer = null
+  }
+}
+
+function scheduleMidnightRefresh() {
+  clearMidnightRefreshTimer()
+
+  if (hasExplicitDate.value || typeof window === 'undefined') {
+    return
+  }
+
+  const now = new Date()
+  const nextMidnight = new Date(now)
+  nextMidnight.setHours(24, 0, 2, 0)
+
+  midnightRefreshTimer = window.setTimeout(() => {
+    liveFallbackDate.value = new Date()
+    scheduleMidnightRefresh()
+  }, Math.max(1000, nextMidnight.getTime() - now.getTime()))
+}
+
+watch(
+  () => props.date,
+  () => {
+    liveFallbackDate.value = new Date()
+    scheduleMidnightRefresh()
+  },
+  { immediate: true }
+)
+
+onBeforeUnmount(() => {
+  clearMidnightRefreshTimer()
+})
+
+const currentDate = computed(() => resolveAppDate(props.date, liveFallbackDate.value))
 const nextEngineerDay = computed(() =>
   getNextEngineerDay(props.engineerDays, currentDate.value)
 )
