@@ -123,7 +123,7 @@ const supportingMessage = computed(() => {
 <template>
   <article :class="['engineer-message', `engineer-message--${props.variant}`]">
     <p class="engineer-message__eyebrow">Engineer's Day radar</p>
-    <h2>BES congratulates all engineers!</h2>
+    <h2><span class="engineer-message__brand">BES</span> Congratulates All Engineers!</h2>
     <p class="engineer-message__primary">
       {{ primaryMessage }}
     </p>
@@ -163,6 +163,10 @@ const supportingMessage = computed(() => {
   font-family: var(--font-round);
   font-weight: 700;
   font-size: 1.55rem;
+}
+
+.engineer-message__brand {
+  color: var(--accent);
 }
 
 .engineer-message__primary {

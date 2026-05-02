@@ -14,8 +14,8 @@ import { backgroundSlides as slides } from '@/assets/backgroundSlides.js'
       :bullets="false"
       :pause-on-hover="false"
       :touchable="false"
-      :duration="6400"
-      :transition-speed="1600"
+      :duration="7200"
+      :transition-speed="1800"
       fixed-height="100%"
     >
       <vueper-slide
@@ -79,10 +79,12 @@ import { backgroundSlides as slides } from '@/assets/backgroundSlides.js'
   color: rgba(231, 249, 245, 0.38);
   font-family: Bahnschrift, "Arial Narrow", sans-serif;
   font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-shadow:
-    0 0 1px hsl(171, 100%, 50%),
+    0 0 1px #00c5a7c0,
+    0 0 1px rgb(0, 51, 43, 0.5),
     0 0 2px hsl(171, 100%, 10%),
     0 0 4px hsl(171, 100%, 10%),
     0 0 6px hsl(171, 100%, 10%),
@@ -90,7 +92,9 @@ import { backgroundSlides as slides } from '@/assets/backgroundSlides.js'
     0 0 12px hsl(171, 100%, 100%),
     0 0 16px hsl(171, 100%, 100%),
     0 0 24px hsl(171, 100%, 100%),
-    0 0 36px hsl(171, 100%, 100%);
+    0 0 36px hsl(171, 100%, 100%),
+    0 0 48px hsl(171, 100%, 100%)
+    ;
   filter: drop-shadow(0 0 0.125rem white);
 }
 
