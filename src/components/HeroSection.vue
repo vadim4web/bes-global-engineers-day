@@ -10,7 +10,7 @@ const props = defineProps({
     type: Object,
     required: true
   },
-  time: {
+  date: {
     type: [Date, String, Number, Object],
     default: () => new Date()
   }
@@ -62,7 +62,7 @@ const navItems = [
             constructability, code, and client communication.
           </p>
 
-          <EngineerDayMessage :engineer-days="props.engineerDays" :time="props.time" />
+          <EngineerDayMessage :engineer-days="props.engineerDays" :date="props.date" />
 
           <div class="hero-actions">
             <a href="#capabilities" class="button button--primary">

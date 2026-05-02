@@ -1,12 +1,19 @@
 <script setup>
 import { computed } from 'vue'
-import dayjs from 'dayjs'
 import HeroSection from '../components/HeroSection.vue'
 import CapabilitiesSection from '../components/CapabilitiesSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import DataHealthPanel from '../components/DataHealthPanel.vue'
 import engineerDays from '../data/engineerDays.normalized.json'
 import { getUpcomingEngineerDays } from '../utils/engineerDayDateRules.js'
+import { resolveAppDate } from '../utils/dateInput.js'
+
+const props = defineProps({
+  date: {
+    type: [Date, String, Number, Object],
+    default: undefined
+  }
+})
 
 const capabilityCards = [
   {
@@ -68,8 +75,10 @@ const projects = [
   }
 ]
 
+const currentDate = computed(() => resolveAppDate(props.date))
+
 const upcomingEngineerDays = computed(() =>
-  getUpcomingEngineerDays(engineerDays, dayjs(), 6)
+  getUpcomingEngineerDays(engineerDays, currentDate.value, 6)
 )
 
 function isSuccessfulParseStatus(status) {
@@ -105,7 +114,7 @@ const dataHealth = computed(() => {
 
 <template>
   <div class="app-shell">
-    <HeroSection :engineer-days="engineerDays" />
+    <HeroSection :engineer-days="engineerDays" :date="props.date" />
 
     <main class="page-content">
       <section id="about" class="content-section section-card about-section">

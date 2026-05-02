@@ -1,14 +1,14 @@
 <script setup>
 import { computed } from 'vue'
-import dayjs from 'dayjs'
 import { getNextEngineerDay } from '../utils/engineerDayDateRules.js'
+import { resolveAppDate } from '../utils/dateInput.js'
 
 const props = defineProps({
   engineerDays: {
     type: Object,
     required: true
   },
-  time: {
+  date: {
     type: [Date, String, Number, Object],
     default: () => new Date()
   },
@@ -18,9 +18,9 @@ const props = defineProps({
   }
 })
 
-const today = computed(() => dayjs(props.time))
+const currentDate = computed(() => resolveAppDate(props.date))
 const nextEngineerDay = computed(() =>
-  getNextEngineerDay(props.engineerDays, today.value)
+  getNextEngineerDay(props.engineerDays, currentDate.value)
 )
 
 const relativeLead = computed(() => {

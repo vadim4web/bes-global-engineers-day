@@ -7,6 +7,13 @@ import engineerDays from '../data/engineerDays.normalized.json'
 import { besContacts } from '../data/besProfile.js'
 
 const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLogo.vue'))
+
+const props = defineProps({
+  date: {
+    type: [Date, String, Number, Object],
+    default: undefined
+  }
+})
 </script>
 
 <template>
@@ -15,7 +22,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 
     <div class="wide-ad-layout">
       <header class="wide-ad-radar">
-        <EngineerDayMessage :engineer-days="engineerDays" :time="new Date('2026-05-13')" variant="widescreen" />
+        <EngineerDayMessage :engineer-days="engineerDays" :date="props.date" variant="widescreen" />
       </header>
 
       <div class="wide-ad-logo">
