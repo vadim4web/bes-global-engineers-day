@@ -140,4 +140,39 @@ const supportingMessage = computed(() => {
 .engineer-message--banner .engineer-message__secondary {
   font-size: 0.96rem;
 }
+
+.engineer-message--widescreen {
+  gap: clamp(14px, 2.6vh, 26px);
+  padding: clamp(24px, 3.2vh, 42px) clamp(28px, 3vw, 54px);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 197, 167, 0.14), transparent 34%),
+    linear-gradient(148deg, rgba(4, 15, 20, 0.96), rgba(7, 23, 29, 0.82));
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(119, 255, 231, 0.06);
+  align-content: center;
+}
+
+.engineer-message--widescreen .engineer-message__eyebrow {
+  font-size: clamp(1rem, 1.3vw, 1.45rem);
+  letter-spacing: 0.18em;
+}
+
+.engineer-message--widescreen h2 {
+  font-size: clamp(2.7rem, 4vw, 4.8rem);
+  line-height: 0.98;
+}
+
+.engineer-message--widescreen .engineer-message__primary {
+  max-width: 34ch;
+  font-size: clamp(1.45rem, 2.2vw, 2.5rem);
+  line-height: 1.24;
+}
+
+.engineer-message--widescreen .engineer-message__secondary {
+  max-width: 48ch;
+  font-size: clamp(1.05rem, 1.32vw, 1.42rem);
+  line-height: 1.45;
+}
 </style>

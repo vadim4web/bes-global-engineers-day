@@ -87,7 +87,7 @@ function buildLogoGroup() {
   const svgData = loader.parse(besLogoSvg)
   const group = new THREE.Group()
   const extrudeSettings = {
-    depth: props.variant === 'ad' ? 22 : 18,
+    depth: props.variant === 'ad' ? 24 : 18,
     bevelEnabled: true,
     bevelSegments: 16,
     steps: 1,
@@ -121,7 +121,7 @@ function buildLogoGroup() {
     group.add(segment)
   })
 
-  const scale = props.variant === 'ad' ? 0.0104 : 0.0088
+  const scale = props.variant === 'ad' ? 0.0155 : 0.0088
   group.scale.set(scale, -scale, scale * 1.85)
 
   const box = new THREE.Box3().setFromObject(group)
@@ -171,8 +171,8 @@ function resizeScene() {
   camera.position.z =
     props.variant === 'ad'
       ? width < 1200
-        ? 13.2
-        : 11.7
+        ? 10.2
+        : 8.4
       : width < 580
         ? 11.6
         : 10.1
@@ -214,7 +214,7 @@ onMounted(() => {
     0.1,
     100
   )
-  camera.position.set(0, 0.08, props.variant === 'ad' ? 11.7 : 10.1)
+  camera.position.set(0, 0.08, props.variant === 'ad' ? 8.4 : 10.1)
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -344,7 +344,7 @@ onBeforeUnmount(() => {
 }
 
 .three-logo-shell--ad {
-  min-height: min(70vh, 720px);
+  min-height: 100%;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -358,7 +358,7 @@ onBeforeUnmount(() => {
 }
 
 .three-logo-shell--ad .three-logo {
-  min-height: min(70vh, 720px);
+  min-height: 100%;
   filter: drop-shadow(0 0 84px rgba(0, 197, 167, 0.46));
 }
 

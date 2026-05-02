@@ -15,7 +15,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 
     <div class="wide-ad-layout">
       <header class="wide-ad-radar">
-        <EngineerDayMessage :engineer-days="engineerDays" variant="banner" />
+        <EngineerDayMessage :engineer-days="engineerDays" variant="widescreen" />
       </header>
 
       <div class="wide-ad-logo">
@@ -49,6 +49,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 .wide-ad-view {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
 }
 
@@ -57,38 +58,54 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
   position: relative;
   z-index: 2;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .wide-ad-layout {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 28px 32px 26px;
+  grid-template-rows: 33fr 55fr 12fr;
+  height: 100vh;
+  height: 100svh;
+  padding: 0 32px;
 }
 
 .wide-ad-radar {
-  width: min(920px, 100%);
+  width: min(100%, 1780px);
   margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  padding: 18px 0 8px;
+}
+
+.wide-ad-radar :deep(.engineer-message) {
+  width: 100%;
+  height: 100%;
 }
 
 .wide-ad-logo {
   display: grid;
   align-items: center;
   justify-items: center;
-  padding: 28px 0;
+  min-height: 0;
+  padding: 0;
 }
 
 .wide-ad-logo :deep(.three-logo-shell) {
-  width: min(1100px, 100%);
+  width: min(100%, 1860px);
+  height: 100%;
 }
 
 .wide-ad-footer {
-  width: min(1100px, 100%);
+  width: min(100%, 1780px);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 20px 28px;
+  height: calc(100% - 12px);
+  align-self: end;
+  padding: 0 34px;
   border-radius: 999px;
   background: rgba(4, 13, 19, 0.62);
   border: 1px solid rgba(119, 255, 231, 0.14);
@@ -99,7 +116,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 .wide-ad-footer a {
   color: var(--accent-bright);
   font-family: var(--font-round);
-  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.15rem, 1.75vw, 1.7rem);
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -159,6 +176,12 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 
   .wide-ad-blocked {
     display: grid;
+  }
+}
+
+@media (min-width: 1600px) {
+  .wide-ad-layout {
+    grid-template-rows: 33fr 56fr 11fr;
   }
 }
 </style>
