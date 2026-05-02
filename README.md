@@ -22,7 +22,38 @@ npm install
 npm run sync:engineer-days
 npm run dev
 npm run build
+npm run build:gh-pages
+npm run deploy
 ```
+
+## Routing
+
+- `/` opens the wide-screen advertising-first home screen.
+- `/wide-screen-ad` opens the full landing page.
+- You can override the radar date with the `d` route value or query string.
+
+Examples:
+
+- `/2026-09-15`
+- `/wide-screen-ad/2026-09-15`
+- `/?d=2026-09-15`
+
+## GitHub Pages
+
+Deployment is wired through the `gh-pages` package.
+
+- `npm run build:gh-pages` builds the app with the correct GitHub Pages base path.
+- `npm run deploy` builds and publishes `dist` to the `gh-pages` branch.
+
+The deploy script auto-detects the repository name from `origin` and uses it as
+the Vite `base` path. For this repository, that resolves to
+`/bes-global-engineers-day/`.
+
+If you ever need to override the detected repository name, set
+`GITHUB_PAGES_REPO` before running the build or deploy script.
+
+The GitHub Pages build also writes `404.html` so Vue Router history-mode routes
+such as `/wide-screen-ad` and `/<date>` continue to work on refresh.
 
 ## Data Flow
 

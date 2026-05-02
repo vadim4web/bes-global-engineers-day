@@ -40,13 +40,13 @@ const props = defineProps({
 
     <div class="wide-ad-blocked">
       <div class="wide-ad-blocked__card">
-        <p class="wide-ad-blocked__eyebrow">Wide-Screen Ad Route</p>
-        <h1>This hidden page is designed for large displays only.</h1>
+        <p class="wide-ad-blocked__eyebrow">Wide-Screen Home</p>
+        <h1>This main screen is designed for large displays only.</h1>
         <p>
-          Open this route on a wide screen to show the centered BES logo,
-          moving background, Engineer's Day radar, and contact dock together.
+          This root page is tuned for wide screens so the BES logo, moving
+          background, Engineer's Day radar, and contact dock can all breathe.
         </p>
-        <RouterLink to="/">Back to the main landing page</RouterLink>
+        <RouterLink to="/wide-screen-ad">Open the full landing page</RouterLink>
       </div>
     </div>
   </section>
