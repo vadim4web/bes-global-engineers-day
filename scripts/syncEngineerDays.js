@@ -2,7 +2,10 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { load } from 'cheerio'
-import { parseEngineerDayDate } from '../src/utils/engineerDayDateRules.js'
+import {
+  describeEngineerDayRule,
+  parseEngineerDayDate
+} from '../src/utils/engineerDayDateRules.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -13,11 +16,83 @@ const rawHtmlCachePath = path.join(__dirname, 'cache', 'engineers-day.wikipedia.
 const normalizedCachePath = path.join(__dirname, 'cache', 'engineerDays.normalized.cache.json')
 const outputPath = path.join(projectRoot, 'src', 'data', 'engineerDays.normalized.json')
 
+const NOTE_OVERRIDES = {
+  Argentina: "Commemorates the 1855 launch of the country's first Civil Engineering degree at the University of Buenos Aires.",
+  Australia: "Celebrated as part of Australian Engineering Week, a public showcase of engineers' contributions to everyday life.",
+  Bangladesh: 'Marks the 1948 founding of the Institution of Engineers, Bangladesh.',
+  Brazil: 'Commemorates Law No. 23,659 of 1933, which regulated the professions of engineer, architect, and surveyor in Brazil.',
+  Colombia: 'Commemorates the 1887 founding of the Sociedad Colombiana de Ingenieros.',
+  'Costa Rica': "Aligns with Pan-American Engineer's Day.",
+  Croatia: "Commemorates the 1878 founding of Zagreb's first engineers' association.",
+  France: 'Observed in tribute to the 1848 creation of the Societe Civile des Ingenieurs, now IESF, and the 1968 creation of WFEO. Since 2020, the date also coincides with UNESCO World Engineering Day for Sustainable Development.',
+  India: 'Celebrated since 1968 in honor of Sir Mokshagundam Visvesvaraya.',
+  Iran: 'Honours Nasir al-Din al-Tusi and is marked around his commemoration day in Iran.',
+  Ireland: 'Engineers Ireland runs it as an annual nationwide campaign introducing young people to engineering.',
+  Israel: "Known locally as Israel Engineer's Day.",
+  Malaysia: "Observed as part of Malaysia's Engineers Week.",
+  Nepal: 'Celebrated on Software Freedom Day.',
+  Netherlands: "KIVI uses Engineers' Day for its annual congress and the presentation of the Prince Friso Engineering Award.",
+  Pakistan: 'Marked the founding of the Pakistan Engineering Council and was celebrated only in 2014.',
+  'Puerto Rico': "Observed as Engineers' and Geometers' Week.",
+  Russia: "Recognized as Power Engineer's Day.",
+  Singapore: 'Organised by the Institution of Engineers, Singapore to promote engineering to the community.',
+  Switzerland: 'Launched nationwide in 2018 by Daniel Lohr and Christian Vils to recognize engineers contributions.',
+  Ukraine: "Known locally as Engineer's Day and intended as a public expression of gratitude to engineers for their work.",
+  'United Kingdom': 'Led by the Royal Academy of Engineering since 2019 as a national awareness day celebrating how engineers shape the future.',
+  'United States of America': "Founded in 1951 by the National Society of Professional Engineers in conjunction with George Washington's birthday.",
+  Venezuela: 'Commemorates the 1861 installation of the Colegio de Ingenieros de Venezuela.'
+}
+
 function cleanCellText(value) {
   return String(value ?? '')
     .replace(/\[[^\]]+\]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
+}
+
+function ensureSentence(value) {
+  const normalized = cleanCellText(value)
+
+  if (!normalized) {
+    return ''
+  }
+
+  return /[.!?]$/.test(normalized) ? normalized : `${normalized}.`
+}
+
+function buildReviewNote(rule) {
+  if (rule?.reviewReason === 'variable_date') {
+    return 'The recurring rule varies by year and still needs manual review.'
+  }
+
+  if (rule?.reviewReason === 'movable_date') {
+    return 'The recurring rule is movable and still needs manual review.'
+  }
+
+  if (rule?.reviewReason === 'calendar_based') {
+    return 'The recurring rule depends on a non-Gregorian calendar and still needs manual review.'
+  }
+
+  return ''
+}
+
+function buildRowNote(country, originalNote, normalizedRule) {
+  const baseNote = ensureSentence(NOTE_OVERRIDES[country] ?? originalNote)
+  const ruleNote = ensureSentence(describeEngineerDayRule(normalizedRule))
+
+  if (!baseNote && !ruleNote) {
+    return buildReviewNote(normalizedRule)
+  }
+
+  if (!baseNote) {
+    return ruleNote
+  }
+
+  if (!ruleNote || normalizedRule?.isOneTime) {
+    return baseNote
+  }
+
+  return `${baseNote} ${ruleNote}`
 }
 
 async function fileExists(targetPath) {
@@ -115,9 +190,7 @@ function parseRowsFromTable(table, $) {
     rows.push({
       country,
       rawDateText,
-      note: country === 'Nepal'
-        ? "Celebrated on Software Freedom Day (3rd Saturday of September)."
-        : note,
+      note: buildRowNote(country, note, normalizedRule),
       sourceUrl: SOURCE_URL,
       normalizedRule
     })

@@ -175,7 +175,7 @@ const supportingMessage = computed(() => {
 }
 
 .engineer-message--widescreen .engineer-message__secondary {
-  max-width: 48ch;
+  /* max-width: 90ch; */
   font-size: clamp(1.05rem, 1.32vw, 1.42rem);
   line-height: 1.45;
 }

@@ -45,6 +45,22 @@ const ORDINAL_MAP = {
   last: -1
 }
 
+const MONTH_NAMES = Object.fromEntries(
+  Object.entries(MONTH_MAP).map(([label, value]) => [
+    value,
+    `${label.charAt(0).toUpperCase()}${label.slice(1)}`
+  ])
+)
+
+const ORDINAL_LABELS = {
+  1: 'first',
+  2: 'second',
+  3: 'third',
+  4: 'fourth',
+  5: 'fifth',
+  '-1': 'last'
+}
+
 function createBaseRule() {
   return {
     ruleType: 'unsupported',
@@ -87,6 +103,81 @@ function assignParsedRule(rule, updates) {
 
 function isSuccessfulParseStatus(status) {
   return status === 'parsed' || status === 'success'
+}
+
+function formatMonthDay(month, day) {
+  const monthName = MONTH_NAMES[month]
+
+  if (!monthName || !day) {
+    return ''
+  }
+
+  return `${monthName} ${day}`
+}
+
+function formatOrdinalLabel(ordinal) {
+  return ORDINAL_LABELS[String(ordinal)] ?? null
+}
+
+function formatWeekdayLabel(weekdayName) {
+  const normalized = String(weekdayName ?? '').toLowerCase()
+
+  if (!normalized) {
+    return null
+  }
+
+  return `${normalized.charAt(0).toUpperCase()}${normalized.slice(1)}`
+}
+
+export function describeEngineerDayRule(rule) {
+  if (!rule || !isSuccessfulParseStatus(rule.parseStatus)) {
+    return ''
+  }
+
+  switch (rule.ruleType) {
+    case 'fixed_date': {
+      const label = formatMonthDay(rule.month, rule.day)
+      return label ? `Observed annually on ${label}.` : ''
+    }
+
+    case 'date_range': {
+      const start = formatMonthDay(rule.startMonth, rule.startDay)
+      const end = formatMonthDay(rule.endMonth, rule.endDay)
+      return start && end ? `Observed annually from ${start} to ${end}.` : ''
+    }
+
+    case 'week_range': {
+      const start = formatMonthDay(rule.startMonth, rule.startDay)
+      const end = formatMonthDay(rule.endMonth, rule.endDay)
+      return start && end ? `Observed annually during the ${start} to ${end} week.` : ''
+    }
+
+    case 'ordinal_weekday':
+    case 'weekday': {
+      const ordinal = formatOrdinalLabel(rule.ordinal)
+      const weekdayName = formatWeekdayLabel(rule.weekday)
+      const monthName = MONTH_NAMES[rule.month]
+      return ordinal && weekdayName && monthName
+        ? `Observed annually on the ${ordinal} ${weekdayName} of ${monthName}.`
+        : ''
+    }
+
+    case 'annual_week': {
+      const ordinal = formatOrdinalLabel(rule.ordinal)
+      const monthName = MONTH_NAMES[rule.month]
+      return ordinal && monthName
+        ? `Observed annually during the ${ordinal} week of ${monthName}.`
+        : ''
+    }
+
+    case 'week_containing_date': {
+      const label = formatMonthDay(rule.month, rule.day)
+      return label ? `Observed annually during the week containing ${label}.` : ''
+    }
+
+    default:
+      return ''
+  }
 }
 
 export function parseEngineerDayDate(rawDateText, note = '') {

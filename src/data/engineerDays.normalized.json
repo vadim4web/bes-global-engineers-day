@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-02T04:05:54.173Z",
+  "generatedAt": "2026-05-02T07:24:41.179Z",
   "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
   "syncSource": "remote",
   "summary": {
@@ -13,7 +13,7 @@
     {
       "country": "Argentina",
       "rawDateText": "June 16",
-      "note": "On June 16, 1855, the first Civil Engineering degree in the country was offered and made available at the University of Buenos Aires.",
+      "note": "Commemorates the 1855 launch of the country's first Civil Engineering degree at the University of Buenos Aires. Observed annually on June 16.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -35,7 +35,7 @@
     {
       "country": "Australia",
       "rawDateText": "Week of 4 to 10 August 2014",
-      "note": "",
+      "note": "Celebrated as part of Australian Engineering Week, a public showcase of engineers' contributions to everyday life. Observed annually during the August 4 to August 10 week.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "week_range",
@@ -57,7 +57,7 @@
     {
       "country": "Bangladesh",
       "rawDateText": "May 7",
-      "note": "Institution of Engineers, Bangladesh was established on this day in 1948.",
+      "note": "Marks the 1948 founding of the Institution of Engineers, Bangladesh. Observed annually on May 7.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -79,7 +79,7 @@
     {
       "country": "Bahrain",
       "rawDateText": "July 1",
-      "note": "",
+      "note": "Observed annually on July 1.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -101,7 +101,7 @@
     {
       "country": "Belgium",
       "rawDateText": "March 20",
-      "note": "",
+      "note": "Observed annually on March 20.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -123,7 +123,7 @@
     {
       "country": "Bolivia",
       "rawDateText": "October 16",
-      "note": "",
+      "note": "Observed annually on October 16.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -145,7 +145,7 @@
     {
       "country": "Brazil",
       "rawDateText": "11 December 1933",
-      "note": "Day that the Law 23.659 regulated the Engineer, Architect and Surveyor professions.",
+      "note": "Commemorates Law No. 23,659 of 1933, which regulated the professions of engineer, architect, and surveyor in Brazil. Observed annually on December 11.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -167,7 +167,7 @@
     {
       "country": "Bulgaria",
       "rawDateText": "Week of 17 to 23 February 2014",
-      "note": "",
+      "note": "Observed annually during the February 17 to February 23 week.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "week_range",
@@ -189,7 +189,7 @@
     {
       "country": "Canada",
       "rawDateText": "September 17",
-      "note": "",
+      "note": "Observed annually on September 17.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -211,7 +211,7 @@
     {
       "country": "Chile",
       "rawDateText": "May 14",
-      "note": "",
+      "note": "Observed annually on May 14.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -233,7 +233,7 @@
     {
       "country": "Colombia",
       "rawDateText": "May 29",
-      "note": "Corresponds to the date Commemoration of the founding of \"Sociedad Colombiana de Ingenieros\" in 1887.",
+      "note": "Commemorates the 1887 founding of the Sociedad Colombiana de Ingenieros. Observed annually on May 29.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -255,7 +255,7 @@
     {
       "country": "Costa Rica",
       "rawDateText": "July 20",
-      "note": "Corresponds to the date of Panamerican engineer's day",
+      "note": "Aligns with Pan-American Engineer's Day. Observed annually on July 20.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -277,7 +277,7 @@
     {
       "country": "Croatia",
       "rawDateText": "March 2",
-      "note": "Engineer's Day is celebrated on 2 March as a tribute to the date in 1878 on which first association of engineers was established in Zagreb.",
+      "note": "Commemorates the 1878 founding of Zagreb's first engineers' association. Observed annually on March 2.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -299,7 +299,7 @@
     {
       "country": "Dominican Republic",
       "rawDateText": "August 14, 2014",
-      "note": "",
+      "note": "Observed annually on August 14.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -321,7 +321,7 @@
     {
       "country": "Ecuador",
       "rawDateText": "June 29",
-      "note": "",
+      "note": "Observed annually on June 29.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -343,7 +343,7 @@
     {
       "country": "El Salvador",
       "rawDateText": "July 20",
-      "note": "",
+      "note": "Observed annually on July 20.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -365,7 +365,7 @@
     {
       "country": "Egypt",
       "rawDateText": "September, date variable",
-      "note": "",
+      "note": "The recurring rule varies by year and still needs manual review.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "unsupported",
@@ -387,7 +387,7 @@
     {
       "country": "France",
       "rawDateText": "March 4",
-      "note": "As a tribute to the creation of the \"Société Civile des Ingénieurs\" in 1848 (now named IESF), and the creation of WFEO in 1968 (IESF is a founding member). Since 2020, March 4 has been registered as \"World Engineering Day for a Sustainable World\" by UNESCO with the support of IESF and WFEO.",
+      "note": "Observed in tribute to the 1848 creation of the Societe Civile des Ingenieurs, now IESF, and the 1968 creation of WFEO. Since 2020, the date also coincides with UNESCO World Engineering Day for Sustainable Development. Observed annually on March 4.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -409,7 +409,7 @@
     {
       "country": "Guatemala",
       "rawDateText": "January 30",
-      "note": "",
+      "note": "Observed annually on January 30.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -431,7 +431,7 @@
     {
       "country": "Greece",
       "rawDateText": "March 10",
-      "note": "",
+      "note": "Observed annually on March 10.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -453,7 +453,7 @@
     {
       "country": "Honduras",
       "rawDateText": "July 16",
-      "note": "",
+      "note": "Observed annually on July 16.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -475,7 +475,7 @@
     {
       "country": "Iceland",
       "rawDateText": "April 10",
-      "note": "",
+      "note": "Observed annually on April 10.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -497,7 +497,7 @@
     {
       "country": "India",
       "rawDateText": "September 15",
-      "note": "It is celebrated since 1968 as tribute to the Indian engineer and Bharat Ratna Sir Mokshagundam Viswesvaraya (popularly known as Sir MV).",
+      "note": "Celebrated since 1968 in honor of Sir Mokshagundam Visvesvaraya. Observed annually on September 15.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -519,7 +519,7 @@
     {
       "country": "Iran",
       "rawDateText": "Week of 19 to 25 February (24 February every year)",
-      "note": "This day is celebrated to respect Nasir al-Din al-Tusi, Iranian scientist.",
+      "note": "Honours Nasir al-Din al-Tusi and is marked around his commemoration day in Iran. Observed annually during the February 19 to February 25 week.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "week_range",
@@ -541,7 +541,7 @@
     {
       "country": "Ireland",
       "rawDateText": "9 to 15 February 2014",
-      "note": "",
+      "note": "Engineers Ireland runs it as an annual nationwide campaign introducing young people to engineering. Observed annually from February 9 to February 15.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "date_range",
@@ -563,7 +563,7 @@
     {
       "country": "Israel",
       "rawDateText": "January 22",
-      "note": "יום המהנדס/ת הישראלי/ת - Israel Engineer's Day",
+      "note": "Known locally as Israel Engineer's Day. Observed annually on January 22.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -585,7 +585,7 @@
     {
       "country": "Italy",
       "rawDateText": "June 15",
-      "note": "",
+      "note": "Observed annually on June 15.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -607,7 +607,7 @@
     {
       "country": "Korea",
       "rawDateText": "March 30, 2014",
-      "note": "",
+      "note": "Observed annually on March 30.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -629,7 +629,7 @@
     {
       "country": "Luxembourg",
       "rawDateText": "February 8, 2014",
-      "note": "",
+      "note": "Observed annually on February 8.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -651,7 +651,7 @@
     {
       "country": "Malaysia",
       "rawDateText": "Movable. Engineer's Week in 2017 20–26 August",
-      "note": "",
+      "note": "Observed as part of Malaysia's Engineers Week. Observed annually on the last Sunday of August.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "weekday",
@@ -673,7 +673,7 @@
     {
       "country": "Mauritius",
       "rawDateText": "September 13",
-      "note": "",
+      "note": "Observed annually on September 13.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -695,7 +695,7 @@
     {
       "country": "Mexico",
       "rawDateText": "July 1",
-      "note": "",
+      "note": "Observed annually on July 1.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -717,7 +717,7 @@
     {
       "country": "Nepal",
       "rawDateText": "Shrawan 3, (Vikram Samvat calendar)",
-      "note": "Celebrated on Software Freedom Day (3rd Saturday of September).",
+      "note": "Celebrated on Software Freedom Day. Observed annually on the third Saturday of September.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "weekday",
@@ -739,7 +739,7 @@
     {
       "country": "Netherlands",
       "rawDateText": "Third Wednesday of March (e.g. 19 March 2014)",
-      "note": "",
+      "note": "KIVI uses Engineers' Day for its annual congress and the presentation of the Prince Friso Engineering Award. Observed annually on the third Wednesday of March.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "ordinal_weekday",
@@ -761,7 +761,7 @@
     {
       "country": "Pakistan",
       "rawDateText": "10 January 2014",
-      "note": "When Pakistan Engineering Council came into being for the regulation of engineering profession and education in Pakistan. Only celebrated in 2014.",
+      "note": "Marked the founding of the Pakistan Engineering Council and was celebrated only in 2014.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -783,7 +783,7 @@
     {
       "country": "Paraguay",
       "rawDateText": "July 23",
-      "note": "",
+      "note": "Observed annually on July 23.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -805,7 +805,7 @@
     {
       "country": "Panama",
       "rawDateText": "January 26",
-      "note": "",
+      "note": "Observed annually on January 26.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -827,7 +827,7 @@
     {
       "country": "Peru",
       "rawDateText": "June 8",
-      "note": "",
+      "note": "Observed annually on June 8.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -849,7 +849,7 @@
     {
       "country": "Poland",
       "rawDateText": "August 14, 2014",
-      "note": "",
+      "note": "Observed annually on August 14.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -871,7 +871,7 @@
     {
       "country": "Portugal",
       "rawDateText": "November 23, 2014",
-      "note": "",
+      "note": "Observed annually on November 23.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -893,7 +893,7 @@
     {
       "country": "Puerto Rico",
       "rawDateText": "13 to 19 May 2014",
-      "note": "Engineer's & Geometer's Week",
+      "note": "Observed as Engineers' and Geometers' Week. Observed annually from May 13 to May 19.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "date_range",
@@ -915,7 +915,7 @@
     {
       "country": "Romania, South Africa",
       "rawDateText": "September 14",
-      "note": "",
+      "note": "Observed annually on September 14.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -937,7 +937,7 @@
     {
       "country": "Russia",
       "rawDateText": "December 22",
-      "note": "Power Engineer's Day",
+      "note": "Recognized as Power Engineer's Day. Observed annually on December 22.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -959,7 +959,7 @@
     {
       "country": "Singapore",
       "rawDateText": "23 to 24 July 2016",
-      "note": "Organised by the Institution of Engineers, Singapore (IES)",
+      "note": "Organised by the Institution of Engineers, Singapore to promote engineering to the community. Observed annually from July 23 to July 24.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "date_range",
@@ -981,7 +981,7 @@
     {
       "country": "Slovakia",
       "rawDateText": "March 16, 2014",
-      "note": "",
+      "note": "Observed annually on March 16.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1003,7 +1003,7 @@
     {
       "country": "Spain",
       "rawDateText": "March 19",
-      "note": "",
+      "note": "Observed annually on March 19.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1025,7 +1025,7 @@
     {
       "country": "Sri Lanka",
       "rawDateText": "September 15",
-      "note": "",
+      "note": "Observed annually on September 15.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1047,7 +1047,7 @@
     {
       "country": "Switzerland",
       "rawDateText": "March 4",
-      "note": "Engineer's Day was launched on March 15, 2018, by Daniel Löhr (civil engineer FH / STV) and Christian Vils (electrical engineer FH / STV). The day of the engineers becomes a nationwide event every year in Switzerland. On this day, the company should pay tribute to the achievements of the engineers, who enable us to lead a carefree life.",
+      "note": "Launched nationwide in 2018 by Daniel Lohr and Christian Vils to recognize engineers contributions. Observed annually on March 4.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1069,7 +1069,7 @@
     {
       "country": "Taiwan",
       "rawDateText": "June 6",
-      "note": "",
+      "note": "Observed annually on June 6.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1091,7 +1091,7 @@
     {
       "country": "Tanzania",
       "rawDateText": "15 September",
-      "note": "",
+      "note": "Observed annually on September 15.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1113,7 +1113,7 @@
     {
       "country": "Tunisia",
       "rawDateText": "October 26, 2013",
-      "note": "",
+      "note": "Observed annually on October 26.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1135,7 +1135,7 @@
     {
       "country": "Turkey",
       "rawDateText": "September 19",
-      "note": "",
+      "note": "Observed annually on September 19.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1157,7 +1157,7 @@
     {
       "country": "Ukraine",
       "rawDateText": "July 31",
-      "note": "День інженера. Професія інженера в Україні стає дедалі популярнішою. Цей день обрано з метою висловлення подяки інженерам за їхню працю.",
+      "note": "Known locally as Engineer's Day and intended as a public expression of gratitude to engineers for their work. Observed annually on July 31.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1179,7 +1179,7 @@
     {
       "country": "United Kingdom",
       "rawDateText": "First week of November annually",
-      "note": "In mid-2018, it was announced that a new national day to celebrate engineering would be launched in the United Kingdom in January 2018. It would be known as This Is Engineering Day. The concept was developed by The Royal Academy of Engineering. The first year's campaign was to raise the profile of a career in engineering, with only 30,000 students each year studying both maths and physics A-levels, which are prerequisites for to study engineering at many universities. The hashtag #ThisIsEngineering often trended on social media each year after the launch with the campaign's focus to try and change some of the perceptions often associated with engineering. The annual celebration of engineering day was rebranded in 2022 to National Engineering Day. In the same year, a study from the Royal Academy of Engineering stated that engineering adds an estimated £645 billion to the UK's annual economy.",
+      "note": "Led by the Royal Academy of Engineering since 2019 as a national awareness day celebrating how engineers shape the future. Observed annually during the first week of November.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "annual_week",
@@ -1201,7 +1201,7 @@
     {
       "country": "United States of America",
       "rawDateText": "Week of February 22",
-      "note": "Always the week in February that encompasses George Washington's birthday",
+      "note": "Founded in 1951 by the National Society of Professional Engineers in conjunction with George Washington's birthday. Observed annually during the week containing February 22.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "week_containing_date",
@@ -1223,7 +1223,7 @@
     {
       "country": "Uruguay",
       "rawDateText": "October 12",
-      "note": "",
+      "note": "Observed annually on October 12.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
@@ -1245,7 +1245,7 @@
     {
       "country": "Venezuela",
       "rawDateText": "October 28",
-      "note": "In commemoration of the installment of the Engineers College on October 28, 1861",
+      "note": "Commemorates the 1861 installation of the Colegio de Ingenieros de Venezuela. Observed annually on October 28.",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
         "ruleType": "fixed_date",
