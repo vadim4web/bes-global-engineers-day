@@ -15,7 +15,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 
     <div class="wide-ad-layout">
       <header class="wide-ad-radar">
-        <EngineerDayMessage :engineer-days="engineerDays" variant="widescreen" />
+        <EngineerDayMessage :engineer-days="engineerDays" :time="new Date('2026-05-13')" variant="widescreen" />
       </header>
 
       <div class="wide-ad-logo">
@@ -51,6 +51,12 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
+  --wide-ad-middle-row: 55fr;
+  --wide-ad-footer-row: 12fr;
+  --wide-ad-footer-band: 12svh;
+  --wide-ad-footer-height: calc(var(--wide-ad-footer-band) - 12px);
+  --wide-ad-slide-label-gap: 6px;
+  --slide-label-bottom: calc(var(--wide-ad-footer-height) + var(--wide-ad-slide-label-gap));
 }
 
 .wide-ad-layout,
@@ -63,7 +69,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 
 .wide-ad-layout {
   display: grid;
-  grid-template-rows: 33fr 55fr 12fr;
+  grid-template-rows: 33fr var(--wide-ad-middle-row) var(--wide-ad-footer-row);
   height: 100vh;
   height: 100svh;
   padding: 0 32px;
@@ -103,7 +109,7 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  height: calc(100% - 12px);
+  height: var(--wide-ad-footer-height);
   align-self: end;
   padding: 0 34px;
   border-radius: 999px;
@@ -180,8 +186,10 @@ const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLo
 }
 
 @media (min-width: 1600px) {
-  .wide-ad-layout {
-    grid-template-rows: 33fr 56fr 11fr;
+  .wide-ad-view {
+    --wide-ad-middle-row: 56fr;
+    --wide-ad-footer-row: 11fr;
+    --wide-ad-footer-band: 11svh;
   }
 }
 </style>

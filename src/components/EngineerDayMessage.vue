@@ -8,13 +8,17 @@ const props = defineProps({
     type: Object,
     required: true
   },
+  time: {
+    type: [Date, String, Number, Object],
+    default: () => new Date()
+  },
   variant: {
     type: String,
     default: 'default'
   }
 })
 
-const today = computed(() => dayjs())
+const today = computed(() => dayjs(props.time))
 const nextEngineerDay = computed(() =>
   getNextEngineerDay(props.engineerDays, today.value)
 )

@@ -5,10 +5,14 @@ import EngineerDayMessage from './EngineerDayMessage.vue'
 
 const BesThreeLogo = defineAsyncComponent(() => import('./BesThreeLogo.vue'))
 
-defineProps({
+const props = defineProps({
   engineerDays: {
     type: Object,
     required: true
+  },
+  time: {
+    type: [Date, String, Number, Object],
+    default: () => new Date()
   }
 })
 
@@ -58,7 +62,7 @@ const navItems = [
             constructability, code, and client communication.
           </p>
 
-          <EngineerDayMessage :engineer-days="engineerDays" />
+          <EngineerDayMessage :engineer-days="props.engineerDays" :time="props.time" />
 
           <div class="hero-actions">
             <a href="#capabilities" class="button button--primary">

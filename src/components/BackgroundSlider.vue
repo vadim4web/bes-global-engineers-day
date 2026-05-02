@@ -128,7 +128,7 @@ const slides = [
   right: 0;
   width: 100%;
   text-align: center;
-  bottom: clamp(42px, 3.5vw, 84px);
+  bottom: var(--slide-label-bottom, clamp(42px, 3.5vw, 84px));
   color: rgba(231, 249, 245, 0.38);
   font-family: Bahnschrift, "Arial Narrow", sans-serif;
   font-size: clamp(2rem, 3vw, 2.75rem);
