@@ -22,7 +22,6 @@ npm install
 npm run sync:engineer-days
 npm run dev
 npm run build
-npm run build:gh-pages
 npm run deploy
 ```
 
@@ -40,14 +39,16 @@ Examples:
 
 ## GitHub Pages
 
-Deployment is wired through the `gh-pages` package.
+Deployment uses the standard `gh-pages` flow:
 
-- `npm run build:gh-pages` builds the app with the correct GitHub Pages base path.
-- `npm run deploy` builds and publishes `dist` to the `gh-pages` branch.
+- `predeploy`: `npm run build`
+- `deploy`: `gh-pages -d dist`
 
-For this repository, GitHub Pages builds with the base path `/bes-global-engineers-day/`.
+Production `base` is read from `VITE_BASE_URL`, so this repository includes [`.env.production`](C:/Users/Chervoniak/Projects/bes-global-engineers-day/.env.production) with:
 
-The GitHub Pages build also writes `404.html` and `.nojekyll` so Vue Router history-mode routes such as `/<date>` and legacy redirect paths continue to work on refresh.
+```env
+VITE_BASE_URL=/bes-global-engineers-day/
+```
 
 ## Data Flow
 

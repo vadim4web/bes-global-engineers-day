@@ -17,7 +17,7 @@ function redirectToHome(route) {
 }
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/:d(\\d{4}-\\d{2}-\\d{2})?',
