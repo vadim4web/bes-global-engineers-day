@@ -131,6 +131,7 @@ function submitForm() {
   width: fit-content;
   color: var(--accent-bright);
   font-family: var(--font-round);
+  font-weight: 700;
   font-size: 1.22rem;
 }
 

@@ -124,12 +124,14 @@ const navItems = [
   border: 1px solid rgba(119, 255, 231, 0.18);
   color: var(--accent-bright);
   font-family: var(--font-round);
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 .hero-brand__text {
   color: rgba(231, 249, 245, 0.88);
   font-family: var(--font-round);
+  font-weight: 700;
 }
 
 .hero-links {

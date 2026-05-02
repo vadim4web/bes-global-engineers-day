@@ -112,6 +112,7 @@ const supportingMessage = computed(() => {
 
 .engineer-message h2 {
   font-family: var(--font-round);
+  font-weight: 700;
   font-size: 1.55rem;
 }
 

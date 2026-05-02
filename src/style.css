@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap');
-
 :root {
   --font-sans: Aptos, "Segoe UI Variable", "Segoe UI", sans-serif;
-  --font-round: "Comfortaa", "Trebuchet MS", sans-serif;
+  --font-round: "Comfortaa", "Noto Color Emoji", "Trebuchet MS", sans-serif;
   font-family: var(--font-sans);
   color: #e7f9f5;
   background:
@@ -150,6 +148,7 @@ textarea {
 .calendar-card h3 {
   margin: 0 0 10px;
   font-family: var(--font-round);
+  font-weight: 700;
   font-size: 1.05rem;
 }
 
