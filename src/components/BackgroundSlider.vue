@@ -135,26 +135,17 @@ const slides = [
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-shadow:
-  0 0 1px hsl(171, 100%, 50%),
-  0 0 2px hsl(171, 100%, 10%),
-  0 0 4px hsl(171, 100%, 10%),
-  0 0 6px hsl(171, 100%, 10%),
-  0 0 8px hsl(171, 100%, 10%),
-  0 0 12px hsl(171, 100%, 100%),
-  0 0 16px hsl(171, 100%, 100%),
-  0 0 24px hsl(171, 100%, 100%),
-  0 0 36px hsl(171, 100%, 100%)
+    0 0 1px hsl(171, 100%, 50%),
+    0 0 2px hsl(171, 100%, 10%),
+    0 0 4px hsl(171, 100%, 10%),
+    0 0 6px hsl(171, 100%, 10%),
+    0 0 8px hsl(171, 100%, 10%),
+    0 0 12px hsl(171, 100%, 100%),
+    0 0 16px hsl(171, 100%, 100%),
+    0 0 24px hsl(171, 100%, 100%),
+    0 0 36px hsl(171, 100%, 100%)
   ;
   filter: drop-shadow(0 0 0.125rem white);
-}
-.slide-label::before {
-  position: absolute;
-  content: '';
-  background: white;
-  top: 0;
-  left: 0;
-  width: fit-content;
-  height: 2rem;
 }
 
 /* overlay залишаємо */
