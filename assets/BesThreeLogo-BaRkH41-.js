@@ -1,4 +1,4 @@
-import{C as e,D as t,_ as n,c as r,g as i,h as a,o}from"./slider-vendor-DFp2tMzk.js";import{t as s}from"./index-CrIiB_vM.js";import{C as c,S as l,_ as u,a as d,b as f,c as p,d as m,f as h,g,h as _,i as v,l as y,m as b,n as x,o as S,p as C,r as w,s as T,t as E,u as D,v as O,w as k,x as A,y as j}from"./three-vendor-D2HNxdgb.js";var M=`<?xml version="1.0" encoding="UTF-8"?>
+import{C as e,D as t,_ as n,c as r,g as i,h as a,o}from"./slider-vendor-DFp2tMzk.js";import{t as s}from"./index-kYlW4wo7.js";import{C as c,S as l,_ as u,a as d,b as f,c as p,d as m,f as h,g,h as _,i as v,l as y,m as b,n as x,o as S,p as C,r as w,s as T,t as E,u as D,v as O,w as k,x as A,y as j}from"./three-vendor-D2HNxdgb.js";var M=`<?xml version="1.0" encoding="UTF-8"?>
 <svg id="_Шар_1" data-name="Шар_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1080 397.6">
   <defs>
     <style>
