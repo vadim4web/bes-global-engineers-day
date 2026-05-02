@@ -105,23 +105,86 @@ function parseRowsFromTable(table, $) {
       return
     }
 
-    rows.push({
+    const normalizedRule = applyCountrySpecificOverride(
       country,
       rawDateText,
       note,
+      parseEngineerDayDate(rawDateText, note)
+    )
+
+    rows.push({
+      country,
+      rawDateText,
+      note: country === 'Nepal'
+        ? "Celebrated on Software Freedom Day (3rd Saturday of September)."
+        : note,
       sourceUrl: SOURCE_URL,
-      normalizedRule: parseEngineerDayDate(rawDateText, note)
+      normalizedRule
     })
   })
 
   return rows
 }
 
+function applyCountrySpecificOverride(country, rawDateText, note, normalizedRule) {
+  if (
+    country === 'Malaysia' &&
+    /movable/i.test(rawDateText)
+  ) {
+    return {
+      ...normalizedRule,
+      ruleType: 'weekday',
+      month: 8,
+      day: null,
+      startMonth: null,
+      startDay: null,
+      endMonth: null,
+      endDay: null,
+      ordinal: -1,
+      weekday: 'Sunday',
+      weekMode: null,
+      isOneTime: false,
+      isRecurring: true,
+      parseStatus: 'success',
+      reviewReason: null
+    }
+  }
+
+  if (
+    country === 'Nepal' &&
+    /software freedom day/i.test(note)
+  ) {
+    return {
+      ...normalizedRule,
+      ruleType: 'weekday',
+      month: 9,
+      day: null,
+      startMonth: null,
+      startDay: null,
+      endMonth: null,
+      endDay: null,
+      ordinal: 3,
+      weekday: 'Saturday',
+      weekMode: null,
+      isOneTime: false,
+      isRecurring: true,
+      parseStatus: 'success',
+      reviewReason: null
+    }
+  }
+
+  return normalizedRule
+}
+
+function isSuccessfulParseStatus(status) {
+  return status === 'parsed' || status === 'success'
+}
+
 function summarizeRows(rows) {
   return {
     totalRows: rows.length,
     automaticallyParsedRows: rows.filter(
-      (entry) => entry.normalizedRule.parseStatus === 'parsed'
+      (entry) => isSuccessfulParseStatus(entry.normalizedRule.parseStatus)
     ).length,
     manualReviewRows: rows.filter(
       (entry) => entry.normalizedRule.parseStatus === 'manual_review'

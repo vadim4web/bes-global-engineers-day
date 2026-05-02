@@ -72,10 +72,14 @@ const upcomingEngineerDays = computed(() =>
   getUpcomingEngineerDays(engineerDays, dayjs(), 6)
 )
 
+function isSuccessfulParseStatus(status) {
+  return status === 'parsed' || status === 'success'
+}
+
 const dataHealth = computed(() => {
   const rows = engineerDays.rows ?? []
   const automaticallyParsedRows = rows.filter(
-    (entry) => entry.normalizedRule?.parseStatus === 'parsed'
+    (entry) => isSuccessfulParseStatus(entry.normalizedRule?.parseStatus)
   ).length
   const manualReviewRows = rows.filter(
     (entry) => entry.normalizedRule?.parseStatus === 'manual_review'

@@ -85,6 +85,10 @@ function assignParsedRule(rule, updates) {
   }
 }
 
+function isSuccessfulParseStatus(status) {
+  return status === 'parsed' || status === 'success'
+}
+
 export function parseEngineerDayDate(rawDateText, note = '') {
   const rule = createBaseRule()
   const dateText = cleanDateText(rawDateText)
@@ -229,7 +233,7 @@ function formatOccurrenceLabel(start, end) {
 
 function resolveOrdinalWeekday(month, ordinal, weekdayName, year) {
   const monthStart = dayjs(`${year}-${String(month).padStart(2, '0')}-01`)
-  const targetDay = WEEKDAY_INDEX[weekdayName]
+  const targetDay = WEEKDAY_INDEX[String(weekdayName ?? '').toLowerCase()]
 
   if (targetDay === undefined) {
     return null
@@ -253,7 +257,7 @@ function resolveOrdinalWeekday(month, ordinal, weekdayName, year) {
 }
 
 export function resolveRuleForYear(rule, year) {
-  if (!rule || rule.parseStatus !== 'parsed') {
+  if (!rule || !isSuccessfulParseStatus(rule.parseStatus)) {
     return null
   }
 
@@ -288,7 +292,8 @@ export function resolveRuleForYear(rule, year) {
       }
     }
 
-    case 'ordinal_weekday': {
+    case 'ordinal_weekday':
+    case 'weekday': {
       const start = resolveOrdinalWeekday(rule.month, rule.ordinal, rule.weekday, year)
       if (!start) {
         return null
@@ -367,7 +372,7 @@ export function getUpcomingEngineerDays(data, fromDate = dayjs(), limit = 5) {
 
   rows.forEach((entry) => {
     const rule = entry.normalizedRule ?? entry
-    if (!rule.isRecurring || rule.isOneTime || rule.parseStatus !== 'parsed') {
+    if (!rule.isRecurring || rule.isOneTime || !isSuccessfulParseStatus(rule.parseStatus)) {
       return
     }
 

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-02T02:25:11.980Z",
+  "generatedAt": "2026-05-02T04:05:54.173Z",
   "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
   "syncSource": "remote",
   "summary": {
     "totalRows": 57,
-    "automaticallyParsedRows": 54,
-    "manualReviewRows": 3,
-    "unsupportedMovableOrCalendarRows": 3,
+    "automaticallyParsedRows": 56,
+    "manualReviewRows": 1,
+    "unsupportedMovableOrCalendarRows": 1,
     "excludedOneTimeEvents": 1
   },
   "rows": [
@@ -654,20 +654,20 @@
       "note": "",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
-        "ruleType": "unsupported",
-        "month": null,
+        "ruleType": "weekday",
+        "month": 8,
         "day": null,
         "startMonth": null,
         "startDay": null,
         "endMonth": null,
         "endDay": null,
-        "ordinal": null,
-        "weekday": null,
+        "ordinal": -1,
+        "weekday": "Sunday",
         "weekMode": null,
         "isOneTime": false,
-        "isRecurring": false,
-        "parseStatus": "manual_review",
-        "reviewReason": "movable_date"
+        "isRecurring": true,
+        "parseStatus": "success",
+        "reviewReason": null
       }
     },
     {
@@ -717,23 +717,23 @@
     {
       "country": "Nepal",
       "rawDateText": "Shrawan 3, (Vikram Samvat calendar)",
-      "note": "Nepali students and groups affiliated with NOSK celebrate Engineer's Day on Software Freedom Day.",
+      "note": "Celebrated on Software Freedom Day (3rd Saturday of September).",
       "sourceUrl": "https://en.wikipedia.org/wiki/Engineer%27s_Day",
       "normalizedRule": {
-        "ruleType": "unsupported",
-        "month": null,
+        "ruleType": "weekday",
+        "month": 9,
         "day": null,
         "startMonth": null,
         "startDay": null,
         "endMonth": null,
         "endDay": null,
-        "ordinal": null,
-        "weekday": null,
+        "ordinal": 3,
+        "weekday": "Saturday",
         "weekMode": null,
         "isOneTime": false,
-        "isRecurring": false,
-        "parseStatus": "manual_review",
-        "reviewReason": "calendar_based"
+        "isRecurring": true,
+        "parseStatus": "success",
+        "reviewReason": null
       }
     },
     {

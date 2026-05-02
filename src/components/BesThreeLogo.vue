@@ -86,6 +86,7 @@ function buildLogoGroup() {
   const loader = new SVGLoader()
   const svgData = loader.parse(besLogoSvg)
   const group = new THREE.Group()
+  const logoLiftRatio = props.variant === 'ad' ? 0.75 : 0.5
   const extrudeSettings = {
     depth: props.variant === 'ad' ? 24 : 18,
     bevelEnabled: true,
@@ -115,7 +116,7 @@ function buildLogoGroup() {
       segment.add(mesh)
     })
 
-    segment.userData.baseY = 0
+    segment.userData.baseY = -225
     segment.userData.rawBounds = new THREE.Box3().setFromObject(segment)
     logoSegments.push(segment)
     group.add(segment)
@@ -127,7 +128,8 @@ function buildLogoGroup() {
   const box = new THREE.Box3().setFromObject(group)
   const center = box.getCenter(new THREE.Vector3())
   const size = box.getSize(new THREE.Vector3())
-  group.position.set(-center.x, -center.y + size.y * 0.04, -center.z)
+  // Increase this ratio to move the 3D BES logo higher inside its canvas.
+  group.position.set(-center.x, -center.y, -center.z)
   group.userData.size = size
 
   logoSegments.forEach((segment) => {
