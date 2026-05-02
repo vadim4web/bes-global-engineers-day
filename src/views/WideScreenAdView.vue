@@ -1,5 +1,4 @@
 <script setup>
-import { RouterLink } from 'vue-router'
 import { defineAsyncComponent } from 'vue'
 import BackgroundSlider from '../components/BackgroundSlider.vue'
 import EngineerDayMessage from '../components/EngineerDayMessage.vue'
@@ -46,7 +45,13 @@ const props = defineProps({
           This root page is tuned for wide screens so the BES logo, moving
           background, Engineer's Day radar, and contact dock can all breathe.
         </p>
-        <RouterLink to="/wide-screen-ad">Open the full landing page</RouterLink>
+        <div class="wide-ad-blocked__links" aria-label="Main contacts">
+          <a :href="besContacts.phoneHref">{{ besContacts.phoneLabel }}</a>
+          <a :href="besContacts.emailHref">{{ besContacts.emailLabel }}</a>
+          <a :href="besContacts.siteHref" target="_blank" rel="noreferrer">
+            {{ besContacts.siteLabel }}
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -172,9 +177,15 @@ const props = defineProps({
   line-height: 1.7;
 }
 
-.wide-ad-blocked__card a {
-  display: inline-flex;
+.wide-ad-blocked__links {
+  display: grid;
+  gap: 12px;
   margin-top: 20px;
+}
+
+.wide-ad-blocked__links a {
+  display: inline-flex;
+  justify-content: center;
   padding: 14px 20px;
   border-radius: 999px;
   background: linear-gradient(135deg, #00c5a7, #4df5de);

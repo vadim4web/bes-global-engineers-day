@@ -14,8 +14,8 @@ import { backgroundSlides as slides } from '@/assets/backgroundSlides.js'
       :bullets="false"
       :pause-on-hover="false"
       :touchable="false"
-      :duration="5200"
-      :transition-speed="1400"
+      :duration="6400"
+      :transition-speed="1600"
       fixed-height="100%"
     >
       <vueper-slide

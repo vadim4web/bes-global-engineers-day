@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "build:gh-pages": "node scripts/buildGhPages.js",
+    "build:gh-pages": "vite build --base=/bes-global-engineers-day/ && node --input-type=module -e \"import fs from 'node:fs'; fs.copyFileSync('dist/index.html', 'dist/404.html'); fs.writeFileSync('dist/.nojekyll', '');\"",
     "preview": "vite preview",
     "sync:engineer-days": "node scripts/syncEngineerDays.js",
-    "deploy": "node scripts/deployGhPages.js"
+    "deploy": "npm run build:gh-pages && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

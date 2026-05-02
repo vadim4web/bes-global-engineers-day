@@ -1,6 +1,6 @@
 # BES Engineer's Day Promo
 
-Vue + Vite landing page for BES, an electrical BIM/VDC and engineering services company. The site celebrates the nearest upcoming Engineer’s Day from a locally normalized dataset and never scrapes Wikipedia at runtime.
+Vue + Vite wide-screen promo site for BES, an electrical BIM/VDC and engineering services company. The site celebrates the nearest upcoming Engineer's Day from a locally normalized dataset and never scrapes Wikipedia at runtime.
 
 ## Stack
 
@@ -29,14 +29,14 @@ npm run deploy
 ## Routing
 
 - `/` opens the wide-screen advertising-first home screen.
-- `/wide-screen-ad` opens the full landing page.
 - You can override the radar date with the `d` route value or query string.
+- Legacy `/draft` and `/wide-screen-ad` URLs redirect back to `/` while preserving the date override.
 
 Examples:
 
 - `/2026-09-15`
-- `/wide-screen-ad/2026-09-15`
 - `/?d=2026-09-15`
+- `/draft/2026-09-15`
 
 ## GitHub Pages
 
@@ -45,21 +45,15 @@ Deployment is wired through the `gh-pages` package.
 - `npm run build:gh-pages` builds the app with the correct GitHub Pages base path.
 - `npm run deploy` builds and publishes `dist` to the `gh-pages` branch.
 
-The deploy script auto-detects the repository name from `origin` and uses it as
-the Vite `base` path. For this repository, that resolves to
-`/bes-global-engineers-day/`.
+For this repository, GitHub Pages builds with the base path `/bes-global-engineers-day/`.
 
-If you ever need to override the detected repository name, set
-`GITHUB_PAGES_REPO` before running the build or deploy script.
-
-The GitHub Pages build also writes `404.html` so Vue Router history-mode routes
-such as `/wide-screen-ad` and `/<date>` continue to work on refresh.
+The GitHub Pages build also writes `404.html` and `.nojekyll` so Vue Router history-mode routes such as `/<date>` and legacy redirect paths continue to work on refresh.
 
 ## Data Flow
 
-The Engineer’s Day data pipeline is intentionally build-time oriented:
+The Engineer's Day data pipeline is intentionally build-time oriented:
 
-1. `scripts/syncEngineerDays.js` fetches the Wikipedia Engineer’s Day page.
+1. `scripts/syncEngineerDays.js` fetches the Wikipedia Engineer's Day page.
 2. The country-wise table is parsed once during development.
 3. Original fields such as `country`, `rawDateText`, `note`, and `sourceUrl` are preserved.
 4. A normalized rule object is generated for each row.
