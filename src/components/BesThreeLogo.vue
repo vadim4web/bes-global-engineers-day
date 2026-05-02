@@ -1,6 +1,14 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import * as THREE from 'three'
+import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js'
+
+const props = defineProps({
+  variant: {
+    type: String,
+    default: 'default'
+  }
+})
 
 const mountRef = ref(null)
 
@@ -12,8 +20,12 @@ let resizeObserver
 
 const letters = []
 
-function createSegment(material, width, height, x, y, depth = 0.45) {
-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(width, height, depth), material)
+function createSegment(material, width, height, x, y, depth = 0.72) {
+  const radius = Math.min(width, height, depth) * 0.28
+  const mesh = new THREE.Mesh(
+    new RoundedBoxGeometry(width, height, depth, 8, radius),
+    material
+  )
   mesh.position.set(x, y, 0)
   mesh.castShadow = true
   mesh.receiveShadow = true
@@ -23,12 +35,12 @@ function createSegment(material, width, height, x, y, depth = 0.45) {
 function createLetterB(material) {
   const group = new THREE.Group()
   ;[
-    [-0.65, 0, 0.34, 2.9],
-    [0.05, 1.22, 1.36, 0.3],
-    [0.05, 0, 1.28, 0.3],
-    [0.05, -1.22, 1.36, 0.3],
-    [0.75, 0.65, 0.28, 0.84],
-    [0.75, -0.65, 0.28, 0.84]
+    [-0.7, 0, 0.44, 3.02],
+    [0.06, 1.23, 1.52, 0.42],
+    [0.04, 0, 1.34, 0.38],
+    [0.06, -1.23, 1.52, 0.42],
+    [0.84, 0.68, 0.42, 0.94],
+    [0.84, -0.68, 0.42, 0.94]
   ].forEach(([x, y, width, height]) => {
     group.add(createSegment(material, width, height, x, y))
   })
@@ -38,10 +50,10 @@ function createLetterB(material) {
 function createLetterE(material) {
   const group = new THREE.Group()
   ;[
-    [-0.72, 0, 0.34, 2.9],
-    [0.02, 1.22, 1.46, 0.3],
-    [-0.04, 0, 1.12, 0.3],
-    [0.02, -1.22, 1.46, 0.3]
+    [-0.8, 0, 0.42, 3.02],
+    [0.08, 1.23, 1.62, 0.42],
+    [0, 0, 1.22, 0.38],
+    [0.08, -1.23, 1.62, 0.42]
   ].forEach(([x, y, width, height]) => {
     group.add(createSegment(material, width, height, x, y))
   })
@@ -51,11 +63,11 @@ function createLetterE(material) {
 function createLetterS(material) {
   const group = new THREE.Group()
   ;[
-    [0, 1.22, 1.44, 0.3],
-    [0, 0, 1.42, 0.3],
-    [0, -1.22, 1.44, 0.3],
-    [-0.74, 0.66, 0.28, 0.86],
-    [0.74, -0.66, 0.28, 0.86]
+    [0, 1.23, 1.6, 0.42],
+    [0, 0, 1.52, 0.38],
+    [0, -1.23, 1.6, 0.42],
+    [-0.82, 0.7, 0.42, 0.98],
+    [0.82, -0.7, 0.42, 0.98]
   ].forEach(([x, y, width, height]) => {
     group.add(createSegment(material, width, height, x, y))
   })
@@ -119,7 +131,14 @@ function resizeScene() {
   renderer.setSize(width, height, false)
 
   camera.aspect = width / height
-  camera.position.z = width < 580 ? 9.5 : 8.2
+  camera.position.z =
+    props.variant === 'ad'
+      ? width < 900
+        ? 8.4
+        : 7
+      : width < 580
+        ? 9.2
+        : 8
   camera.updateProjectionMatrix()
 }
 
@@ -137,35 +156,43 @@ onMounted(() => {
     0.1,
     100
   )
-  camera.position.set(0, 0.15, 8.2)
+  camera.position.set(0, 0.15, props.variant === 'ad' ? 7 : 8)
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true
   })
   renderer.outputColorSpace = THREE.SRGBColorSpace
+  renderer.toneMapping = THREE.ACESFilmicToneMapping
+  renderer.toneMappingExposure = 1.18
   renderer.shadowMap.enabled = true
   renderer.shadowMap.type = THREE.PCFSoftShadowMap
   mountRef.value.appendChild(renderer.domElement)
 
-  const ambient = new THREE.AmbientLight(0x8bf8e9, 1.2)
+  const ambient = new THREE.AmbientLight(0x8bf8e9, 1.25)
   scene.add(ambient)
 
-  const keyLight = new THREE.PointLight(0x7effea, 18, 24, 1.4)
+  const keyLight = new THREE.PointLight(0x7effea, 24, 26, 1.4)
   keyLight.position.set(0.8, 2.8, 7)
   scene.add(keyLight)
 
-  const fillLight = new THREE.PointLight(0x0f8f80, 12, 18, 1.6)
+  const fillLight = new THREE.PointLight(0x0f8f80, 15, 20, 1.6)
   fillLight.position.set(-5, -2, 2)
   scene.add(fillLight)
+
+  const rimLight = new THREE.PointLight(0x83fff0, 10, 18, 2)
+  rimLight.position.set(0, -1.5, -4)
+  scene.add(rimLight)
 
   const material = new THREE.MeshPhysicalMaterial({
     color: 0xb8fff2,
     emissive: 0x00c5a7,
-    emissiveIntensity: 1.8,
-    metalness: 0.42,
-    roughness: 0.18,
-    clearcoat: 0.4
+    emissiveIntensity: 1.9,
+    metalness: 0.16,
+    roughness: 0.08,
+    clearcoat: 1,
+    clearcoatRoughness: 0.12,
+    reflectivity: 0.9
   })
 
   const word = new THREE.Group()
@@ -173,9 +200,9 @@ onMounted(() => {
   const letterE = createLetterE(material)
   const letterS = createLetterS(material)
 
-  letterB.position.x = -2.9
+  letterB.position.x = -3.1
   letterE.position.x = 0
-  letterS.position.x = 2.9
+  letterS.position.x = 3.1
 
   letters.push(letterB, letterE, letterS)
   word.add(letterB, letterE, letterS)
@@ -183,7 +210,7 @@ onMounted(() => {
 
   const glowTexture = createGlowTexture()
   if (glowTexture) {
-    ;[-2.9, 0, 2.9].forEach((positionX) => {
+    ;[-3.1, 0, 3.1].forEach((positionX) => {
       const sprite = new THREE.Sprite(
         new THREE.SpriteMaterial({
           map: glowTexture,
@@ -195,20 +222,21 @@ onMounted(() => {
         })
       )
       sprite.position.set(positionX, 0, -0.45)
-      sprite.scale.set(3.8, 3.8, 1)
+      const spriteSize = props.variant === 'ad' ? 4.8 : 3.8
+      sprite.scale.set(spriteSize, spriteSize, 1)
       word.add(sprite)
     })
   }
 
   const halo = new THREE.Mesh(
-    new THREE.TorusGeometry(4.6, 0.04, 24, 180),
+    new THREE.TorusGeometry(props.variant === 'ad' ? 5.4 : 4.8, 0.05, 28, 220),
     new THREE.MeshBasicMaterial({
       color: 0x00c5a7,
       transparent: true,
       opacity: 0.42
     })
   )
-  halo.rotation.x = Math.PI / 2.7
+  halo.rotation.x = Math.PI / 2.75
   scene.add(halo)
 
   const sparkField = createSparkField()
@@ -219,14 +247,14 @@ onMounted(() => {
   const animate = () => {
     const elapsed = clock.getElapsedTime()
 
-    word.rotation.y = Math.sin(elapsed * 0.45) * 0.26
+    word.rotation.y = Math.sin(elapsed * 0.45) * 0.24
     word.rotation.x = Math.sin(elapsed * 0.28) * 0.08
-    word.position.y = Math.sin(elapsed * 1.3) * 0.12
+    word.position.y = Math.sin(elapsed * 1.2) * 0.12
 
     letters.forEach((letter, index) => {
-      letter.position.y = Math.sin(elapsed * 1.8 + index * 0.9) * 0.22
-      letter.rotation.z = Math.sin(elapsed * 1.4 + index * 0.8) * 0.08
-      letter.rotation.x = Math.cos(elapsed * 1.2 + index * 0.5) * 0.05
+      letter.position.y = Math.sin(elapsed * 1.75 + index * 0.8) * 0.2
+      letter.rotation.z = Math.sin(elapsed * 1.35 + index * 0.8) * 0.07
+      letter.rotation.x = Math.cos(elapsed * 1.15 + index * 0.5) * 0.04
     })
 
     halo.rotation.z += 0.0024
@@ -257,7 +285,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="three-logo-shell">
+  <div :class="['three-logo-shell', `three-logo-shell--${props.variant}`]">
     <div ref="mountRef" class="three-logo" aria-hidden="true"></div>
   </div>
 </template>
@@ -275,11 +303,23 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 0 80px rgba(0, 197, 167, 0.06);
 }
 
+.three-logo-shell--ad {
+  min-height: min(70vh, 720px);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .three-logo {
   width: 100%;
   height: 100%;
   min-height: 430px;
   filter: drop-shadow(0 0 40px rgba(0, 197, 167, 0.32));
+}
+
+.three-logo-shell--ad .three-logo {
+  min-height: min(70vh, 720px);
+  filter: drop-shadow(0 0 70px rgba(0, 197, 167, 0.42));
 }
 
 @media (max-width: 980px) {

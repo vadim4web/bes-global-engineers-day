@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap');
+
 :root {
-  font-family: Aptos, "Segoe UI Variable", "Segoe UI", sans-serif;
+  --font-sans: Aptos, "Segoe UI Variable", "Segoe UI", sans-serif;
+  --font-round: "Comfortaa", "Trebuchet MS", sans-serif;
+  font-family: var(--font-sans);
   color: #e7f9f5;
   background:
     radial-gradient(circle at top, rgba(0, 197, 167, 0.1), transparent 28%),
@@ -83,7 +87,8 @@ textarea {
 
 .section-heading h2 {
   margin: 0;
-  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  font-family: var(--font-round);
+  font-weight: 700;
   font-size: clamp(1.8rem, 3vw, 2.75rem);
   letter-spacing: 0.01em;
   line-height: 1.08;
@@ -144,7 +149,7 @@ textarea {
 .project-card h3,
 .calendar-card h3 {
   margin: 0 0 10px;
-  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  font-family: var(--font-round);
   font-size: 1.05rem;
 }
 

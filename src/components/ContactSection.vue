@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import { besContacts } from '../data/besProfile.js'
 
 defineProps({
   id: {
@@ -31,7 +32,7 @@ function submitForm() {
   <section :id="id" class="content-section section-card contact-section">
     <div class="section-heading">
       <span class="section-kicker">Contacts</span>
-      <h2>Let’s line up the next electrical coordination sprint.</h2>
+      <h2>Let's line up the next electrical coordination sprint.</h2>
     </div>
 
     <div class="contact-grid">
@@ -41,11 +42,19 @@ function submitForm() {
           approach and a practical eye on electrical design support.
         </p>
 
-        <a href="tel:+17865541301" class="contact-line">
-          +1 786 554 1301
+        <a :href="besContacts.phoneHref" class="contact-line">
+          {{ besContacts.phoneLabel }}
         </a>
-        <a href="mailto:bes@b-eng-s.com" class="contact-line">
-          bes@b-eng-s.com
+        <a :href="besContacts.emailHref" class="contact-line">
+          {{ besContacts.emailLabel }}
+        </a>
+        <a
+          :href="besContacts.siteHref"
+          class="contact-line"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {{ besContacts.siteLabel }}
         </a>
 
         <p class="contact-note">
@@ -121,7 +130,7 @@ function submitForm() {
 .contact-line {
   width: fit-content;
   color: var(--accent-bright);
-  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  font-family: var(--font-round);
   font-size: 1.22rem;
 }
 

@@ -1,0 +1,164 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+import { defineAsyncComponent } from 'vue'
+import BackgroundSlider from '../components/BackgroundSlider.vue'
+import EngineerDayMessage from '../components/EngineerDayMessage.vue'
+import engineerDays from '../data/engineerDays.normalized.json'
+import { besContacts } from '../data/besProfile.js'
+
+const BesThreeLogo = defineAsyncComponent(() => import('../components/BesThreeLogo.vue'))
+</script>
+
+<template>
+  <section class="wide-ad-view">
+    <BackgroundSlider />
+
+    <div class="wide-ad-layout">
+      <header class="wide-ad-radar">
+        <EngineerDayMessage :engineer-days="engineerDays" variant="banner" />
+      </header>
+
+      <div class="wide-ad-logo">
+        <BesThreeLogo variant="ad" />
+      </div>
+
+      <footer class="wide-ad-footer" aria-label="Main contacts">
+        <a :href="besContacts.phoneHref">{{ besContacts.phoneLabel }}</a>
+        <a :href="besContacts.emailHref">{{ besContacts.emailLabel }}</a>
+        <a :href="besContacts.siteHref" target="_blank" rel="noreferrer">
+          {{ besContacts.siteLabel }}
+        </a>
+      </footer>
+    </div>
+
+    <div class="wide-ad-blocked">
+      <div class="wide-ad-blocked__card">
+        <p class="wide-ad-blocked__eyebrow">Wide-Screen Ad Route</p>
+        <h1>This hidden page is designed for large displays only.</h1>
+        <p>
+          Open this route on a wide screen to show the centered BES logo,
+          moving background, Engineer's Day radar, and contact dock together.
+        </p>
+        <RouterLink to="/">Back to the main landing page</RouterLink>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.wide-ad-view {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.wide-ad-layout,
+.wide-ad-blocked {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.wide-ad-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 28px 32px 26px;
+}
+
+.wide-ad-radar {
+  width: min(920px, 100%);
+  margin: 0 auto;
+}
+
+.wide-ad-logo {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 28px 0;
+}
+
+.wide-ad-logo :deep(.three-logo-shell) {
+  width: min(1100px, 100%);
+}
+
+.wide-ad-footer {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 28px;
+  border-radius: 999px;
+  background: rgba(4, 13, 19, 0.62);
+  border: 1px solid rgba(119, 255, 231, 0.14);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+.wide-ad-footer a {
+  color: var(--accent-bright);
+  font-family: var(--font-round);
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.wide-ad-blocked {
+  display: none;
+  place-items: center;
+  padding: 24px;
+}
+
+.wide-ad-blocked__card {
+  width: min(640px, 100%);
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(155deg, rgba(11, 23, 29, 0.94), rgba(5, 15, 20, 0.9));
+  border: 1px solid rgba(119, 255, 231, 0.12);
+  box-shadow: var(--shadow-glow);
+  text-align: center;
+}
+
+.wide-ad-blocked__eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent-bright);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.wide-ad-blocked__card h1 {
+  margin: 0 0 14px;
+  font-family: var(--font-round);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.02;
+}
+
+.wide-ad-blocked__card p {
+  margin: 0;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+.wide-ad-blocked__card a {
+  display: inline-flex;
+  margin-top: 20px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #00c5a7, #4df5de);
+  color: #03231e;
+  font-weight: 700;
+}
+
+@media (max-width: 1199px) {
+  .wide-ad-layout {
+    display: none;
+  }
+
+  .wide-ad-blocked {
+    display: grid;
+  }
+}
+</style>

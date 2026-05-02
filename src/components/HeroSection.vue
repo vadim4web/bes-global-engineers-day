@@ -29,7 +29,7 @@ const navItems = [
       <header class="hero-nav">
         <a href="#hero" class="hero-brand">
           <span class="hero-brand__mark">BES</span>
-          <span class="hero-brand__text">Engineer’s Day Edition</span>
+          <span class="hero-brand__text">Engineer's Day Edition</span>
         </a>
 
         <nav class="hero-links" aria-label="Primary">
@@ -46,7 +46,7 @@ const navItems = [
       <div class="hero-layout">
         <div class="hero-copy">
           <span class="hero-eyebrow">
-            Electrical BIM · VDC · Design Support for US Builders
+            Electrical BIM / VDC / Design Support for US Builders
           </span>
           <h1>
             Precision coordination for electrical teams that would rather solve
@@ -123,12 +123,13 @@ const navItems = [
   background: linear-gradient(135deg, rgba(0, 197, 167, 0.2), rgba(119, 255, 231, 0.08));
   border: 1px solid rgba(119, 255, 231, 0.18);
   color: var(--accent-bright);
-  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  font-family: var(--font-round);
   letter-spacing: 0.08em;
 }
 
 .hero-brand__text {
   color: rgba(231, 249, 245, 0.88);
+  font-family: var(--font-round);
 }
 
 .hero-links {
@@ -172,7 +173,8 @@ const navItems = [
 
 .hero-copy h1 {
   margin: 0;
-  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  font-family: var(--font-round);
+  font-weight: 700;
   font-size: clamp(3rem, 6vw, 5.8rem);
   line-height: 0.94;
   letter-spacing: -0.03em;

@@ -7,6 +7,10 @@ const props = defineProps({
   engineerDays: {
     type: Object,
     required: true
+  },
+  variant: {
+    type: String,
+    default: 'default'
   }
 })
 
@@ -47,29 +51,29 @@ const primaryMessage = computed(() => {
   }
 
   if (event.isOngoing) {
-    return `Engineer’s Day is happening now in ${event.country}, running ${event.displayLabel}.`
+    return `Engineer's Day is happening now in ${event.country}, running ${event.displayLabel}.`
   }
 
-  return `The nearest Engineer’s Day is ${relativeLead.value}, ${event.displayLabel}, in ${event.country}.`
+  return `The nearest Engineer's Day is ${relativeLead.value}, ${event.displayLabel}, in ${event.country}.`
 })
 
 const supportingMessage = computed(() => {
   const event = nextEngineerDay.value
   if (!event) {
-    return 'Happy Engineer’s Day to the people who keep reality, code, and conduit routing from having an argument.'
+    return "Happy Engineer's Day to the people who keep reality, code, and conduit routing from having an argument."
   }
 
   if (event.note) {
     return event.note
   }
 
-  return 'Happy Engineer’s Day to the people who somehow make impossible look coordinated.'
+  return "Happy Engineer's Day to the people who somehow make impossible look coordinated."
 })
 </script>
 
 <template>
-  <article class="engineer-message">
-    <p class="engineer-message__eyebrow">Engineer’s Day radar</p>
+  <article :class="['engineer-message', `engineer-message--${props.variant}`]">
+    <p class="engineer-message__eyebrow">Engineer's Day radar</p>
     <h2>BES congratulates all engineers!</h2>
     <p class="engineer-message__primary">
       {{ primaryMessage }}
@@ -107,7 +111,7 @@ const supportingMessage = computed(() => {
 }
 
 .engineer-message h2 {
-  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  font-family: var(--font-round);
   font-size: 1.55rem;
 }
 
@@ -119,5 +123,20 @@ const supportingMessage = computed(() => {
 .engineer-message__secondary {
   color: rgba(231, 249, 245, 0.7);
   line-height: 1.6;
+}
+
+.engineer-message--banner {
+  gap: 8px;
+  padding: 18px 22px;
+  background: linear-gradient(150deg, rgba(5, 16, 22, 0.92), rgba(8, 24, 28, 0.68));
+}
+
+.engineer-message--banner h2 {
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+}
+
+.engineer-message--banner .engineer-message__primary,
+.engineer-message--banner .engineer-message__secondary {
+  font-size: 0.96rem;
 }
 </style>
