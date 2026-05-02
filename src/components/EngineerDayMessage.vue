@@ -128,6 +128,7 @@ const supportingMessage = computed(() => {
 .engineer-message__secondary {
   color: rgba(231, 249, 245, 0.7);
   line-height: 1.6;
+  white-space: pre-line;
 }
 
 .engineer-message--banner {

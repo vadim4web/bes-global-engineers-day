@@ -197,7 +197,7 @@ const dataHealth = computed(() => {
           >
             <div class="calendar-date">{{ entry.displayLabel }}</div>
             <h3>{{ entry.country }}</h3>
-            <p>{{ entry.note || "Recurring annual Engineer's Day entry." }}</p>
+            <p class="calendar-note">{{ entry.note || "Recurring annual Engineer's Day entry." }}</p>
           </article>
         </div>
 
@@ -222,3 +222,9 @@ const dataHealth = computed(() => {
     </main>
   </div>
 </template>
+
+<style scoped>
+.calendar-note {
+  white-space: pre-line;
+}
+</style>

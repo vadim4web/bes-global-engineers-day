@@ -60,6 +60,19 @@ function ensureSentence(value) {
   return /[.!?]$/.test(normalized) ? normalized : `${normalized}.`
 }
 
+function splitIntoNoteLines(value) {
+  return String(value ?? '')
+    .split(/\n+/)
+    .flatMap((line) => line.split(/(?<=[.!?])\s+(?=[A-Z"])/g))
+    .map((line) => line.trim())
+    .filter(Boolean)
+}
+
+function joinNoteLines(...parts) {
+  const lines = parts.flatMap((part) => splitIntoNoteLines(part))
+  return lines.join('\n')
+}
+
 function buildReviewNote(rule) {
   if (rule?.reviewReason === 'variable_date') {
     return 'The recurring rule varies by year and still needs manual review.'
@@ -85,14 +98,14 @@ function buildRowNote(country, originalNote, normalizedRule) {
   }
 
   if (!baseNote) {
-    return ruleNote
+    return joinNoteLines(ruleNote)
   }
 
   if (!ruleNote || normalizedRule?.isOneTime) {
-    return baseNote
+    return joinNoteLines(baseNote)
   }
 
-  return `${baseNote} ${ruleNote}`
+  return joinNoteLines(baseNote, ruleNote)
 }
 
 async function fileExists(targetPath) {
