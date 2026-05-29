@@ -1,5 +1,6 @@
 <script setup>
-import { defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import BackgroundSlider from '../components/BackgroundSlider.vue'
 import EngineerDayMessage from '../components/EngineerDayMessage.vue'
 import engineerDays from '../data/engineerDays.normalized.json'
@@ -13,6 +14,14 @@ const props = defineProps({
     default: undefined
   }
 })
+
+const route = useRoute()
+
+const portraitRoute = computed(() => ({
+  name: 'portrait',
+  params: route.params?.d ? { d: route.params.d } : {},
+  query: route.query
+}))
 </script>
 
 <template>
@@ -45,6 +54,9 @@ const props = defineProps({
           This root page is tuned for wide screens so the BES logo, moving
           background, Engineer's Day radar, and contact dock can all breathe.
         </p>
+        <RouterLink class="wide-ad-blocked__switch" :to="portraitRoute">
+          Open portrait version
+        </RouterLink>
         <div class="wide-ad-blocked__links" aria-label="Main contacts">
           <a :href="besContacts.phoneHref">{{ besContacts.phoneLabel }}</a>
           <a :href="besContacts.emailHref">{{ besContacts.emailLabel }}</a>
@@ -181,6 +193,19 @@ const props = defineProps({
   display: grid;
   gap: 12px;
   margin-top: 20px;
+}
+
+.wide-ad-blocked__switch {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: rgba(4, 13, 19, 0.7);
+  border: 1px solid rgba(119, 255, 231, 0.16);
+  color: var(--accent-bright);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .wide-ad-blocked__links a {

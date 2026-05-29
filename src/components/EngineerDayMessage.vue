@@ -276,4 +276,37 @@ const supportingMessage = computed(() => {
   font-size: clamp(1.05rem, 1.32vw, 1.42rem);
   line-height: 1.45;
 }
+
+.engineer-message--portrait {
+  gap: clamp(12px, 1.8vh, 22px);
+  padding: clamp(20px, 2.8vh, 34px) clamp(18px, 4.4vw, 30px);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 197, 167, 0.12), transparent 34%),
+    linear-gradient(152deg, rgba(4, 15, 20, 0.95), rgba(7, 23, 29, 0.82));
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.32),
+    inset 0 0 0 1px rgba(119, 255, 231, 0.05);
+}
+
+.engineer-message--portrait .engineer-message__eyebrow {
+  font-size: clamp(0.8rem, 1vh, 0.95rem);
+  letter-spacing: 0.16em;
+}
+
+.engineer-message--portrait h2 {
+  max-width: 11ch;
+  font-size: clamp(2.1rem, 4vh, 3.8rem);
+  line-height: 0.96;
+}
+
+.engineer-message--portrait .engineer-message__primary {
+  font-size: clamp(1.08rem, 1.7vh, 1.5rem);
+  line-height: 1.34;
+}
+
+.engineer-message--portrait .engineer-message__secondary {
+  font-size: clamp(0.94rem, 1.35vh, 1.15rem);
+  line-height: 1.52;
+}
 </style>

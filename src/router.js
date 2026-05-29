@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import PortraitAdView from './views/PortraitAdView.vue'
 import WideScreenAdView from './views/WideScreenAdView.vue'
 import { getRouteDateValue } from './utils/dateInput.js'
 
@@ -32,6 +33,20 @@ const router = createRouter({
     {
       path: '/wide-screen-ad/:d(\\d{4}-\\d{2}-\\d{2})?',
       redirect: redirectToHome
+    },
+    {
+      path: '/portrait-ad/:d(\\d{4}-\\d{2}-\\d{2})?',
+      name: 'portrait',
+      component: PortraitAdView,
+      props: routeDateProps
+    },
+    {
+      path: '/portrait/:d(\\d{4}-\\d{2}-\\d{2})?',
+      redirect: (route) => ({
+        name: 'portrait',
+        params: route.params?.d ? { d: route.params.d } : {},
+        query: route.query
+      })
     }
   ]
 })

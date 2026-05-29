@@ -179,6 +179,62 @@ const LOGO_TUNING = {
       sparksRotateZSpeed: 0.04,
       sparksRotateYSpeed: 0.06
     }
+  },
+  portrait: {
+    scale: 0.0146,
+    depthScale: 2.1,
+    logoLiftRatio: 0.77,
+    segmentBaseY: -225,
+    shellDropShadow: 'drop-shadow(0 0 92px rgba(0, 197, 167, 0.58))',
+    extrude: {
+      depth: 24,
+      bevelEnabled: true,
+      bevelSegments: 18,
+      steps: 1,
+      bevelSize: 6.5,
+      bevelThickness: 7.5,
+      curveSegments: 52
+    },
+    camera: {
+      fov: 34,
+      y: 0.08,
+      mobileBreakpoint: 900,
+      desktopZ: 9.5,
+      mobileZ: 10.9
+    },
+    sparks: {
+      size: 0.074
+    },
+    spriteGlowOpacity: 0.36,
+    spriteGlowScaleX: 1.28,
+    spriteGlowScaleY: 2.4,
+    halo: {
+      radiusXMultiplier: 0.6,
+      radiusYMultiplier: 1.5,
+      tube: 0.08,
+      opacity: 0.34,
+      rotationX: Math.PI / 2.65,
+      y: 0.04
+    },
+    animation: {
+      rootRotateYSpeed: 0.38,
+      rootRotateYAmount: 0.15,
+      rootRotateXSpeed: 0.24,
+      rootRotateXAmount: 0.045,
+      rootBounceSpeed: 1,
+      rootBounceAmount: 0.11,
+      segmentBounceSpeed: 1.45,
+      segmentBounceAmount: 0.16,
+      segmentRotateZSpeed: 1.08,
+      segmentRotateZAmount: 0.03,
+      segmentRotateXSpeed: 0.98,
+      segmentRotateXAmount: 0.026,
+      segmentOffsetStep: 0.85,
+      segmentOffsetStepX: 0.7,
+      haloSpinSpeed: 0.0019,
+      sparksRotateZSpeed: 0.035,
+      sparksRotateYSpeed: 0.055
+    }
   }
 }
 
@@ -579,6 +635,13 @@ onBeforeUnmount(() => {
   box-shadow: none;
 }
 
+.three-logo-shell--portrait {
+  min-height: 100%;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .three-logo {
   width: 100%;
   height: 100%;
@@ -589,6 +652,11 @@ onBeforeUnmount(() => {
 .three-logo-shell--ad .three-logo {
   min-height: 100%;
   filter: v-bind('LOGO_TUNING.ad.shellDropShadow');
+}
+
+.three-logo-shell--portrait .three-logo {
+  min-height: 100%;
+  filter: v-bind('LOGO_TUNING.portrait.shellDropShadow');
 }
 
 @media (max-width: 980px) {

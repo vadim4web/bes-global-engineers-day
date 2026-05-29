@@ -72,13 +72,18 @@ import { backgroundSlides as slides } from '@/assets/backgroundSlides.js'
 
 .slide-label {
   position: absolute;
+  left: 0;
   right: 0;
+  display: block;
   width: 100%;
+  max-width: var(--slide-label-max-width, 100%);
+  margin: 0 auto;
+  padding-inline: var(--slide-label-padding-inline, 0);
   text-align: center;
   bottom: var(--slide-label-bottom, clamp(42px, 3.5vw, 84px));
   color: rgba(231, 249, 245, 0.38);
   font-family: Bahnschrift, "Arial Narrow", sans-serif;
-  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-size: var(--slide-label-font-size, clamp(2rem, 3vw, 2.75rem));
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;

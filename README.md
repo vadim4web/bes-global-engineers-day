@@ -28,12 +28,14 @@ npm run deploy
 ## Routing
 
 - `/` opens the wide-screen advertising-first home screen.
+- `/portrait-ad` opens the portrait advertising-first home screen.
 - You can override the radar date with the `d` route value or query string.
-- Legacy `/draft` and `/wide-screen-ad` URLs redirect back to `/` while preserving the date override.
+- Legacy `/draft`, `/wide-screen-ad`, and short `/portrait` URLs redirect while preserving the date override.
 
 Examples:
 
 - `/2026-09-15`
+- `/portrait-ad/2026-09-15`
 - `/?d=2026-09-15`
 - `/draft/2026-09-15`
 
