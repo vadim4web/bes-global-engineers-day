@@ -1,6 +1,7 @@
 :root {
   --font-sans: Aptos, "Segoe UI Variable", "Segoe UI", sans-serif;
-  --font-round: "Comfortaa", "Noto Color Emoji", "Trebuchet MS", sans-serif;
+  --font-round: "Comfortaa", "Trebuchet MS", sans-serif;
+  --font-emoji: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   font-family: var(--font-sans);
   color: #e7f9f5;
   background:

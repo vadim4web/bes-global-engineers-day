@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { getNextEngineerDay } from '../utils/engineerDayDateRules.js'
+import { getCountryFlagSegments } from '../utils/countryFlags.js'
 import { resolveAppDate } from '../utils/dateInput.js'
 
 const props = defineProps({
@@ -67,6 +68,9 @@ const currentDate = computed(() => resolveAppDate(props.date, liveFallbackDate.v
 const nextEngineerDay = computed(() =>
   getNextEngineerDay(props.engineerDays, currentDate.value)
 )
+const countrySegments = computed(() =>
+  getCountryFlagSegments(nextEngineerDay.value?.country)
+)
 
 const relativeLead = computed(() => {
   const event = nextEngineerDay.value
@@ -93,19 +97,6 @@ const relativeLead = computed(() => {
   return event.occurrence.start.format('dddd')
 })
 
-const primaryMessage = computed(() => {
-  const event = nextEngineerDay.value
-  if (!event) {
-    return 'BES congratulates all engineers while the remaining variable-date entries wait for a human with a calendar and strong coffee.'
-  }
-
-  if (event.isOngoing) {
-    return `Engineer's Day is happening now in ${event.country}, running ${event.displayLabel}.`
-  }
-
-  return `The nearest Engineer's Day is ${relativeLead.value}, ${event.displayLabel}, in ${event.country}.`
-})
-
 const supportingMessage = computed(() => {
   const event = nextEngineerDay.value
   if (!event) {
@@ -125,7 +116,46 @@ const supportingMessage = computed(() => {
     <p class="engineer-message__eyebrow">Engineer's Day radar</p>
     <h2><span class="engineer-message__brand">BES</span> Congratulates All Engineers!</h2>
     <p class="engineer-message__primary">
-      {{ primaryMessage }}
+      <template v-if="!nextEngineerDay">
+        BES congratulates all engineers while the remaining variable-date entries wait for a human with a calendar and strong coffee.
+      </template>
+      <template v-else-if="nextEngineerDay.isOngoing">
+        Engineer's Day is happening now in
+        <span class="engineer-message__country-list">
+          <template
+            v-for="(segment, index) in countrySegments"
+            :key="`${segment.name}-${index}`"
+          >
+            <span class="engineer-message__country">
+              <span
+                v-if="segment.flag"
+                aria-hidden="true"
+                class="engineer-message__flag"
+              >{{ segment.flag }}</span>
+              <span>{{ segment.name }}</span>
+            </span><template v-if="index < countrySegments.length - 1">, </template>
+          </template>
+        </span>,
+        running {{ nextEngineerDay.displayLabel }}.
+      </template>
+      <template v-else>
+        The nearest Engineer's Day is {{ relativeLead }}, {{ nextEngineerDay.displayLabel }}, in
+        <span class="engineer-message__country-list">
+          <template
+            v-for="(segment, index) in countrySegments"
+            :key="`${segment.name}-${index}`"
+          >
+            <span class="engineer-message__country">
+              <span
+                v-if="segment.flag"
+                aria-hidden="true"
+                class="engineer-message__flag"
+              >{{ segment.flag }}</span>
+              <span>{{ segment.name }}</span>
+            </span><template v-if="index < countrySegments.length - 1">, </template>
+          </template>
+        </span>.
+      </template>
     </p>
     <p class="engineer-message__secondary">
       {{ supportingMessage }}
@@ -172,6 +202,23 @@ const supportingMessage = computed(() => {
 .engineer-message__primary {
   color: #f1fffb;
   line-height: 1.55;
+}
+
+.engineer-message__country {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  white-space: nowrap;
+}
+
+.engineer-message__flag {
+  display: inline-block;
+  font-family: var(--font-emoji);
+  font-size: 1.08em;
+  line-height: 1;
+  letter-spacing: 0;
+  font-variant-emoji: emoji;
+  transform: translateY(0.04em);
 }
 
 .engineer-message__secondary {
